@@ -1,0 +1,19 @@
+.section#logs{
+    height: calc(30vh - var(--sz3));
+    
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+p#logs_lines {
+    white-space: pre-wrap;
+    background-color: var(--bg0);
+    
+    padding: var(--sz3);
+    border-radius: var(--sz3);
+}
+
+
+.section#logs .section_title button {
+    font-size: var(--sz3);        
+}

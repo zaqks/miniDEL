@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>miniDEL Editor</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'assets/fonts/hack/hack.css' %}">
+    <link rel="stylesheet" href="{% static 'widgets/theme_dark.css' %}">
+
+    <link rel="stylesheet" href="{% static 'widgets/section/section.css' %}">
+    <link rel="stylesheet" href="{% static 'widgets/form/form.css' %}">
+    <link rel="stylesheet" href="{% static 'widgets/button/button.css' %}">
+    <link rel="stylesheet" href="{% static 'widgets/table/table.css' %}">
+
+    <link rel="stylesheet" href="{% static 'client_app/css/client_app.css' %}">
+    <link rel="stylesheet" href="{% static 'client_app/css/editor.css' %}">
+    <link rel="stylesheet" href="{% static 'client_app/css/tables.css' %}">
+    <link rel="stylesheet" href="{% static 'client_app/css/logs.css' %}">
+    <link rel="stylesheet" href="{% static 'client_app/css/syntax.css' %}">
+
+
+</head>
+
+<body>
+    <div class="section" id="main">
+        <div class="section_content">
+            <div class="section" id="home">
+                <div class="section_content">
+
+                    <div class="section borders" id="tables">
+                        <div class="section borders" id="quads">
+                            <div class="section_title">
+                                <h3>QUADS</h3>
+                            </div>
+                            <div class="section_content">
+                                <table>
+                                    <thead>
+                                        <th>TAG</th>
+                                        <th>SLOT1</th>
+                                        <th>SLOT2</th>
+                                        <th>SLOT3</th>
+                                        <th>SLOT4</th>
+                                    </thead>
+                                    <tbody id="QUADS">
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="section borders" id="STs">
+                            <div class="section_title">
+                                <h3>Symbol Tables</h3>
+                            </div>
+                            <div class="section_content">
+                                <div class="section borders overflow">
+                                    <div class="section_title">
+                                        <h4>ST_CST</h4>
+                                    </div>
+                                    <div class="section_content">
+                                        <table>
+                                            <thead>
+                                                <th>name</th>
+                                                <th>code</th>
+                                                <th>type</th>
+                                                <th>value</th>
+                                                <th>size</th>
+                                            </thead>
+                                            <tbody id="ST_CST">                                            
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="section borders overflow">
+                                    <div class="section_title">
+                                        <h4>ST_IDF</h4>
+                                    </div>
+                                    <div class="section_content">
+                                        <table>
+                                            <thead>
+                                                <th>name</th>
+                                                <th>code</th>
+                                                <th>type</th>
+                                                <th>value</th>
+                                                <th>size</th>
+                                            </thead>
+                                            <tbody id="ST_IDF">
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="section borders overflow">
+                                    <div class="section_title">
+                                        <h4>ST_KW</h4>
+                                    </div>
+                                    <div class="section_content">
+                                        <table>
+                                            <thead>
+                                                <th>name</th>
+                                                <th>code</th>
+                                                <th>type</th>
+                                                <th>value</th>
+                                                <th>size</th>
+                                            </thead>
+                                            <tbody id="ST_KW">
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="section borders overflow">
+                                    <div class="section_title">
+                                        <h4>ST_SEP</h4>
+                                    </div>
+                                    <div class="section_content">
+                                        <table>
+                                            <thead>
+                                                <th>name</th>
+                                                <th>code</th>
+                                                <th>type</th>
+                                                <th>value</th>
+                                                <th>size</th>
+                                            </thead>
+                                            <tbody id="ST_SEP">
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                        
+                    </div>
+                    <div class="section borders" id="editor">
+                        <div class="section_title">
+                            <h3>Editor</h3>
+                        </div>
+                        <div class="section_content">
+                            <textarea id="nums" rows="1" contenteditable="true" spellcheck="false"
+                                autocapitalize="false" readonly></textarea>
+
+                            <div id="blk">
+                                <textarea id="inpt" rows="1" contenteditable="true" spellcheck="false"
+                                    autocapitalize="false"></textarea>
+                                <pre id="highlight_wrap">
+<code id="highlight"></code>
+                            </pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section borders" id="logs">
+                <div class="section_title">
+                    <h3>Logs</h3>
+                    <button>Execute</button>
+                </div>
+                <div class="section_content">
+                    <p id="logs_lines">Hello world</p>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <div style="display: none;">
+        <div id="CSRF">
+            {% csrf_token %}
+        </div>
+        <div id="URL">
+            {% url 'client_app:server' %}
+        </div>
+    </div>
+
+    <script src="{% static 'client_app/js/links.js' %}"></script>
+
+    <script src="{% static 'client_app/js/consts.js' %}"></script>
+    <script src="{% static 'client_app/js/tables.js' %}"></script>
+    <script src="{% static 'client_app/js/spans.js' %}"></script>
+    <script src="{% static 'client_app/js/render.js' %}"></script>
+    <script src="{% static 'client_app/js/events.js' %}"></script>
+
+</body>
+
+</html>

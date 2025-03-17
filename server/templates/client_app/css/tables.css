@@ -1,0 +1,21 @@
+.section#tables {
+    width: 35%;
+    height: 100%;
+
+    overflow: hidden;
+    overflow-y: scroll;
+} 
+
+.section#tables > .section_content{
+    gap: var(--sz3);
+}
+
+th{
+    font-size: var(--sz3);
+    background-color: var(--bg0);
+}
+
+tr td{
+    font-size: var(--sz3);
+    background-color: var(--bg0);
+}

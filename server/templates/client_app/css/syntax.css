@@ -1,0 +1,23 @@
+span.keyword {
+    color: lightsalmon;
+}
+
+span.idf {
+    color: lightgreen;
+}
+
+span.entity {
+    color: wheat;
+}
+
+span.error {
+    color: crimson;
+}
+
+
+
+span.error2 {
+    color: crimson;
+    text-decoration: underline dashed;
+    text-decoration-color: crimson;
+}
