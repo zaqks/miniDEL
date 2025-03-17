@@ -1,4 +1,4 @@
-<img width="100%" src"docs/screen.png">
+<img width="100%" src="docs/screen.png">
 
 # miniDEL
 **Minidel pseudo-language compiler** (lexer/parser/semantic analyzer) built with Lex, Bison, and C on Linux (compiled via GCC/Flex/Bison), paired with a Django-based web editor featuring syntax highlighting and error diagnostics through a custom JavaScript library. 
